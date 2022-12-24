@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-none {
+    display: none;
+}
+
+body {
+    position: relative;
+    background: #434343;
+    background: linear-gradient(45deg, #2c2c2c, #555555);
+    color: rgb(230, 230, 230);
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+.modal-overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    opacity: 0.5;
+    left: 0;
+    top: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+
+.header-search__input {
+    padding: 5px 10px;
+    border-radius: 20px;
+    width: 250px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.movies {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.movie {
+    width: 18%;
+    cursor: pointer;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.movie-poster {
+    position: relative;
+    height: fit-contient;
+}
+
+.movie-poster img {
+    width: 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 98.3%;
+    z-index: 1;
+    background: #000;
+    opacity: 0.1;
+}
+
+.movie-poster:hover .overlay {
+    background: #ccc;
+}
+
+.movie-title {
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.movie-genre {
+    font-size: 14px;
+    color: rgb(255, 216, 125);
+}
+
+.movie-rating {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 10px;
+}
+
+.movie-rating__green {
+    border: 2px solid green;
+}
+
+.movie-rating__orange {
+    border: 2px solid orange;
+}
+
+.movie-rating__red {
+    border: 2px solid red;
+}
+
+.modal-block {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.modal-block--show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    padding: 30px;
+    width: 60%;
+    height: 90%;
+    background: #8d8d8d;
+    overflow-y: auto;
+    border-radius: 5px;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
+    cursor: auto;
+    position: relative;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translate(0, -30px);
+    color: #fff;
+}
+
+.modal-animate {
+    display: block;
+    opacity: 1;
+    transform: translate(0px, 0px);
+}
+
+.modal::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 5px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 5px;
+}
+
+.modal__close-button {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.modal-cover {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.modal-cover__IMG {
+    width: 300px;
+    height: auto;
+    background: #fff;
+    margin-right: 30px;
+}
+
+
+.modal-cover__info {
+    min-width: 60px;
+    min-width: 50%;
+}
+
+.modal-cover__info p {
+    margin-bottom: 10px;
+}
+
+.modal-cover__info-title {
+    font-size: 46px;
+    font-weight: 900;
+}
+
+.modal-cover__info-year {
+    font-size: 36px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.modal-cover__info-slogan {
+    font-style: italic;
+}
+
+.modal-sinopsis {
+    margin: auto 0;
+}
+
+.modal-rating--green {
+    color: green;
+    font-weight: 900;
+}
+
+.modal-rating--orange {
+    color: orange;
+    font-weight: 900;
+}
+
+.modal-rating--red {
+    color: red;
+    font-weight: 900;
+}
+
+.pagination {
+    margin: 0 auto;
+    display: flex;
+}
+
+.pagination-item {
+    font-size: 12px;
+    color: #f1f1f1;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #f1f1f1;
+}
+
+.pagination-item+.pagination-item {
+    margin-left: 5px;
+}
