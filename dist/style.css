@@ -16,24 +16,47 @@ a {
 
 .d-none {
     display: none;
+    flex-wrap: nowrap;
 }
 
 body {
     position: relative;
-    background: #434343;
-    background: linear-gradient(45deg, #2c2c2c, #555555);
+    background: #2F4F4F;
+    background: linear-gradient(45deg, #2F4F4F, #696969);
     color: rgb(230, 230, 230);
     min-height: 100vh;
     overflow-y: auto;
 }
-
-
 
 .container {
     width: 1200px;
     margin: 0 auto;
     padding: 10px;
     position: relative;
+}
+
+.slider-line {
+    display: flex;
+    transition: 0.5s;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 120px;
+    width: 15px;
+    height: 25px;
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.to-left-btn {
+    left: 0;
+}
+
+.to-right-btn {
+    right: 0;
 }
 
 .modal-overlay {
@@ -153,6 +176,12 @@ body {
     background: rgba(0, 0, 0, 0.5);
     z-index: 10;
     cursor: pointer;
+    overflow: hidden;
+}
+
+.stop-scroll {
+    overflow: hidden;
+
 }
 
 .modal-block--show {
@@ -165,7 +194,7 @@ body {
     padding: 30px;
     width: 60%;
     height: 90%;
-    background: #8d8d8d;
+    background: #708090;
     overflow-y: auto;
     border-radius: 5px;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
@@ -175,6 +204,7 @@ body {
     opacity: 0;
     transform: translate(0, -30px);
     color: #fff;
+
 }
 
 .modal-animate {
@@ -264,16 +294,49 @@ body {
 .pagination {
     margin: 0 auto;
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+
 }
 
 .pagination-item {
     font-size: 12px;
     color: #f1f1f1;
-    width: 14px;
-    height: 14px;
     border: 2px solid #f1f1f1;
+    width: 27px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pagination-item+.pagination-item {
     margin-left: 5px;
+}
+
+.actors-block {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.actors-title {
+    margin-bottom: 10px;
+}
+
+.actor-card {
+    padding: 5px;
+}
+
+.actor-card img {
+    width: 140px;
+    border-radius: 20px;
+}
+
+.actor-name {
+    font-size: 14px;
+}
+
+.actor-role {
+    font-size: 12px;
 }

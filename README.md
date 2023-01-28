@@ -1,2 +1,2 @@
 # kmdb
-kinopoisk movie data base
+movie app
