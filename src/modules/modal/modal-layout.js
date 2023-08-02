@@ -1,27 +1,52 @@
-const { getData } = require("../funcs.js");
-const API = require("../API.js");
+const funcs = require("../funcs.js");
+const IMDBlogo = require("../../assets/img/imdb-logo.png");
+const kinopoiskLogo = require("../../assets/img/kinopoisk-logo.png");
+const staffList = require("./modal-staff-list.js")
+
+function modalSummaryLayout(item) {
+    const summary = document.createElement("DIV");
+    summary.classList.add("modal-heading__summary");
+    summary.innerHTML = `<img class="modal-summary__img" src="${item.posterUrl}" alt="poster-img">
+                        <div class="modal-summary__rating">
+                            ${!item.ratingImdb ? "" : `<div class="modal-rating">
+                                                            <div class="modal-rating__color-border ${funcs.ratingColor(item.ratingImdb)}">
+                                                                <p>${item.ratingImdb}</p>
+                                                            </div>
+                                                            <img src="${IMDBlogo}" alt="imdb-logo" style="margin-top: calc(var(--index) * .6)">
+                                                        </div>`}
+                            ${!item.ratingKinopoisk ? "" : `<div class="modal-rating">
+                                                            <div class="modal-rating__color-border ${funcs.ratingColor(item.ratingKinopoisk)}">
+                                                                <p>${item.ratingKinopoisk}</p>
+                                                            </div>
+                                                            <img src="${kinopoiskLogo}" alt="kinopoisk-logo">
+                                                        </div>`}
+                        </div>`;
+    return summary;
+}
+
+function modalInfoLayout(item) {
+    const info = document.createElement("DIV");
+    info.classList.add("modal-heading__info");
+    info.innerHTML = `<h1 class="modal-info__title">${item.nameRu}</h1>
+                        ${item.slogan ? `<p class="modal-info__slogan">«${item.slogan}»</p>` : ""}
+                        <p class="modal-info__genres"><span>Жанры:</span><span>${item.genres.map(item => ` ${item.genre}`)}</span></p>
+                        <p class="modal-info__year"><span>Год выхода:</span><span>${item.year}</span></p>
+                        <p class="modal-info__country"><span>Страна:</span><span>${item.countries.map(item => ` ${item.country}`)}</span></p>
+                        ${item.ratingAgeLimits != null ? `<p class="modal-info__age"><span>Возрастной рейтинг:</span><span>${parseInt(item.ratingAgeLimits.replace(/\D/g, ""))}+</span></p>` : ""}
+                        ${item.ratingMpaa != null ? `<p class="modal-info__ageMPAA"><span>Возрастной рейтинг (MPAA):</span><span>${item.ratingMpaa}</span></p>` : ""}
+                        ${item.filmLength != null ? `<p class="modal-info__durarion"><span>Длительность:</span><span>${item.filmLength} мин.</span></p>` : ""}
+                        <a href="${item.webUrl}" class="modal-info__link" target="_blank">Перейти на Kinopoisk.ru</a>
+                        <p class="modal-info__sinopsis"><span>Описание:</span><br>${item.description}</p>`;
+    return info;
+}
 
 module.exports = {
     modalHeading: function (item) {
         const modalHeading = document.createElement("DIV");
         modalHeading.classList.add("modal-heading");
-        modalHeading.innerHTML = `<div class="modal-heading__panel">
-                                        <img class="modal-heading__img" src="${item.posterUrl}" alt="poster-img">
-                                    </div>
-                                    <div class="modal-heading__info">
-                                        <h1 class="modal-heading__title">${item.nameRu}</h1>
-                                        ${item.slogan ? `<p class="modal-heading__slogan">«${item.slogan}»</p>` : ""}
-                                        <p class="modal-heading__genres"><span>Жанры:</span><span>${item.genres.map(item => ` ${item.genre}`)}</span></p>
-                                        <p class="modal-year"><span>Год выхода:</span><span>${item.year}</span></p>
-                                        <p class="modal-heading__country"><span>Страна:</span><span>${item.countries.map(item => ` ${item.country}`)}</span></p>
-                                        ${item.ratingAgeLimits != null ? `<p class="modal-heading__age"><span>Возрастной рейтинг:</span><span>${parseInt(item.ratingAgeLimits.replace(/\D/g, ""))}+</span></p>` : ""}
-                                        ${item.ratingMpaa != null ? `<p class="modal-heading__ageMPAA"><span>Возрастной рейтинг (MPAA):</span><span>${item.ratingMpaa}</span></p>` : ""}
-                                        <p class="modal-heading__durarion"><span>Длительность:</span><span>${item.filmLength} мин.</span></p>
-                                        <a href="${item.webUrl}" class="modal-heading__link" target="_blank">Перейти на Kinopoisk.ru</a>                                        
-                                    </div >
-                                    <div class="modal-heading__staff">
-                                    </div>
-                                </div >`;
+        modalHeading.append(modalSummaryLayout(item));
+        modalHeading.append(modalInfoLayout(item));
+        modalHeading.append(staffList.staffList(item));
         return modalHeading;
     }
 }

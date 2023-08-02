@@ -9,7 +9,6 @@ const user = {
     viewed: [],
     wannaSee: [],
 }
-// const openModal = require("./modal.js")
 
 const Slider = require("./modules/slider.js");
 const pop100slider = document.querySelector(".popular-slider");
@@ -27,7 +26,6 @@ function getPop100slider() {
 function getTop250slider() {
     Funcs.getData(API.top250url, API.key)
         .then(data => {
-            console.log(data)
             Slider.getSlider(data.films, top250slider);
         })
         .catch(error => console.log(error));
