@@ -56,6 +56,10 @@ button:active {
     position: relative;
 }
 
+section {
+    margin-bottom: 50px;
+}
+
 #content {
     padding: var(--index);
 }
@@ -296,7 +300,6 @@ button:active {
 .slider {
     padding: var(--index) 0;
     overflow-x: auto;
-    margin-bottom: 50px;
 }
 
 .slider::-webkit-scrollbar {
@@ -480,4 +483,100 @@ button:active {
     bottom: -250%;
 }
 
-/* rating */
+/* menu end */
+
+/* top block start */
+
+#top-block {
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    padding: var(--index);
+}
+
+.top-block-content {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.top-block-content__img img {
+    height: 100%;
+}
+
+.top-block-content__info {
+    width: 60%;
+}
+
+.top-block-content__info--title {
+    font-size: calc(var(--index) * 2);
+    font-weight: 100;
+}
+
+.top-block-content__info--slogan {
+    font-weight: 100;
+    font-style: italic;
+}
+
+.top-block-content__description {
+    margin-top: var(--index);
+    margin-bottom: var(--index);
+}
+
+.top-block-content__info--rating-wrapper {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-block-content__info--rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-block-content__info--rating--color-border {
+    width: calc(var(--index) * 5);
+    height: calc(var(--index) * 5);
+    border-radius: 50%;
+    border-width: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(var(--index) * 2.5);
+    margin-bottom: calc(var(--index) * .4);
+}
+
+.top-block-content__info--rating img {
+    width: calc(var(--index) * 3);
+}
+
+.top-block-slider {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.top-block-slider__item img {
+    height: calc(var(--index) * 5);
+    border-radius: 5px;
+}
+
+.top-block-slider__item+.top-block-slider__item {
+    margin-left: var(--index);
+}
+
+.top-block-overlay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(0deg, var(--black) 15%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+}
+
+/* top block end */

@@ -219,7 +219,7 @@ eval("module.exports = __webpack_require__.p + \"Lato-Regular.ttf\";\n\n//# sour
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"imdb-logo.png\";\n\n//# sourceURL=webpack://movie-app/./src/assets/img/imdb-logo.png?");
+eval("module.exports = __webpack_require__.p + \"assets/img/imdb-logo.png\";\n\n//# sourceURL=webpack://movie-app/./src/assets/img/imdb-logo.png?");
 
 /***/ }),
 
@@ -230,7 +230,7 @@ eval("module.exports = __webpack_require__.p + \"imdb-logo.png\";\n\n//# sourceU
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"kinopoisk-logo.png\";\n\n//# sourceURL=webpack://movie-app/./src/assets/img/kinopoisk-logo.png?");
+eval("module.exports = __webpack_require__.p + \"assets/img/kinopoisk-logo.png\";\n\n//# sourceURL=webpack://movie-app/./src/assets/img/kinopoisk-logo.png?");
 
 /***/ })
 
