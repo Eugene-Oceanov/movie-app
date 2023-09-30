@@ -1,4 +1,7 @@
-const { topBlockMovieInfo } = require("./top-block-info.js")
+// Модуль сборки верхнего экрана с 10 самыми популярными новинками.
+
+const { topBlockMovieInfo } = require("./top-block-info.js");
+let currentItem = null;
 
 function topBlock(arr, node) {
   const topBlockSlider = document.createElement("DIV");
@@ -14,46 +17,24 @@ function topBlock(arr, node) {
     topBlockSliderItem.classList.add("top-block-slider__item");
     topBlockSliderItem.innerHTML = `<img src="${arr[i].posterUrlPreview}" alt="${arr[i].nameEn}">`;
 
-
-
     topBlockSliderItem.addEventListener("click", () => {
+
+      if (currentItem) {
+        currentItem.style.outline = "";
+      }
+
+      topBlockSliderItem.style.outline = "2px solid #fff";
+      currentItem = topBlockSliderItem;
+
       topBlockContent.innerHTML = "";
-      topBlockMovieInfo(arr[i], topBlockContent)
+      topBlockMovieInfo(arr[i], topBlockContent);
     });
     topBlockSlider.append(topBlockSliderItem);
 
   }
+
   node.append(topBlockSlider);
   node.append(topBlockContent);
 }
 
 module.exports = { topBlock }
-
-/*
-{ overlay
-  "pagesCount": 7,
-  "films": [
-    {
-      "filmId": 263531,
-      "nameRu": "Мстители",
-      "nameEn": "The Avengers",
-      "year": "2012",
-      "filmLength": "137",
-      "countries": [
-        {
-          "country": "США"
-        }
-      ],
-      "genres": [
-        {
-          "genre": "фантастика"
-        }
-      ],
-      "rating": 7.9,
-      "ratingVoteCount": 284245,
-      "posterUrl": "http://kinopoiskapiunofficial.tech/images/posters/kp/263531.jpg",
-      "posterUrlPreview": "https://kinopoiskapiunofficial.tech/images/posters/kp_small/301.jpg"
-    }
-  ]
-}
-*/

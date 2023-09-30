@@ -1,3 +1,5 @@
+// Компонент стандартной "карусели". Пока что это просто блоки с overflow: auto, но впоследствии будет полноценный слайдер. А может и нет. Не знаю еще
+
 const funcs = require("./funcs.js");
 const { openModal } = require("./modal/modal.js");
 

@@ -518,6 +518,13 @@ section {
     font-style: italic;
 }
 
+.top-block-content__genres {
+    font-size: calc(var(--index) * .8);
+    color: rgb(255, 216, 125);
+    margin-top: calc(var(--index) * .5);
+    font-weight: 100;
+}
+
 .top-block-content__description {
     margin-top: var(--index);
     margin-bottom: var(--index);
@@ -528,6 +535,8 @@ section {
     display: flex;
     justify-content: space-between;
 }
+
+/* op-block-slider__item */
 
 .top-block-content__info--rating {
     display: flex;
@@ -558,6 +567,12 @@ section {
     left: 0;
     bottom: 0;
     z-index: 2;
+}
+
+.top-block-slider__item {
+    cursor: pointer;
+    padding: 5px 5px 0 5px;
+    border-radius: 3px;
 }
 
 .top-block-slider__item img {

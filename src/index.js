@@ -1,3 +1,8 @@
+// Головной файл, который собирает страницу из нескольких компонентов. Подключаются следующие компоненты:
+// Верхний блок с 10 наиболее популярными новинками
+// Несколько "каруселей" со 100 самыми популярными новинками и топ 250 кинопоиска
+// Пока все. Не придумал структуру главной страницы еще 
+
 "use strict"
 
 import "./assets/css/index.css";
@@ -12,6 +17,7 @@ const user = {
 
 const topBlock = require("./modules/top-block/top-block.js")
 const Slider = require("./modules/slider.js");
+
 const topBlockNode = document.querySelector("#top-block");
 const pop100slider = document.querySelector(".popular-slider");
 const top250slider = document.querySelector(".top-250-slider");
